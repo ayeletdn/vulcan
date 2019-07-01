@@ -60,7 +60,7 @@ export class CirclService {
     );
   }
 
-  getCVEIds(vendor:string, product:string):Observable<string[]> {
+  getCVEList(vendor:string, product:string):Observable<Array<CVE>> {
     if (!this.vendors.includes(vendor)) {
       throw new ReferenceError("Invalid vendor");
     }
@@ -70,9 +70,7 @@ export class CirclService {
     }
 
     const path = this.basePath + this.searchPath + "/" + vendor + "/" + product;
-    return this.http.get<Array<{id:string}>>(path).pipe(
-      map(arr => arr.map(x => x.id))
-    );
+    return this.http.get<Array<CVE>>(path);
 
   }
 }
