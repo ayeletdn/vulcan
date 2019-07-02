@@ -16,6 +16,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatInputModule} from '@angular/material/input';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { CveDetailsRowComponent } from './cve-details-row/cve-details-row.component';
 
 
 
@@ -23,7 +24,8 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   declarations: [
     AppComponent,
     CveDetailsComponent,
-    CveSearchComponent
+    CveSearchComponent,
+    CveDetailsRowComponent
   ],
   imports: [
     BrowserModule,

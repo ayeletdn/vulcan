@@ -20,7 +20,8 @@ export class CirclService {
   ) { }
 
   getCVE(id:string) {
-    if (!(/^CVE-\d+-\d+$/.test(id))) {
+    // http://cve.mitre.org/cve/identifiers/syntaxchange.html
+    if (!(/^CVE-\d{4}-\d{4,}$/.test(id))) {
       throw new TypeError("Invalid CVE id");
     }
 
@@ -86,34 +87,9 @@ export type CVE = {
   capec: Array<{id:string, name:string}>,
   access: {authentication:string, complexity:string, vector:string},
   impact: {availability:string, confidentiality: string, integrity: string},
-  msbulletin: Array<{
-    bulletin_id?: string,
-    bulletin_url?: string,
-    date?: Date,
-    impact: string,
-    knowledgebase_id: string,
-    knowledgebase_url?: string,
-    severity: string,
-    title?: string,
-    bulletin_SOURCE_FILE?: string,
-    cves_url?: string,
-    knowledgebase_SOURCE_FILE?: string,
-    name?: string,
-    publishedDate?: Date,
-  }>,
-  nessus: Array<{
-    "NASL family": string,
-    "NASL id": string,
-    description: string,
-    "last seen": Date,
-    modified: Date,
-    "plugin id": string,
-    published: Date,
-    reporter: string,
-    source: string,
-    title: string
-  }>,
+  "ref-map":any,
   Modified: Date,
   Published: Date,
-  "last-modified": Date
+  "last-modified": Date,
+  [key: string]: any // everything-else
 }
