@@ -4,8 +4,7 @@ Basic functionality, as required in the challenge PDF is implemented.
 
 **TODO**:
 - Back navigation from details to search should maintain search results
-- Display all details in the CVE details page
-- Improve error handling/display when load fails
+- *Improve* display of all details in the CVE details page (recursion)
 - Tests!
 
 *This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.*
